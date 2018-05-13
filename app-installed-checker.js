@@ -19,9 +19,12 @@ class AppInstalledChecker {
     static checkURLScheme(proto, query) {
         return new Promise((resolve, reject) => {
             Linking
-                .canOpenURL(proto + '://' + query || '')
+                //.canOpenURL(proto + '://' + query || '')
+                //.canOpenURL(query + '://')
+                .canOpenURL(query)
                 .then((isInstalled) => {
-                    console.log('isInstalled', isInstalled);
+                    //console.log(proto + ' isInstalled', isInstalled);
+                    console.log(query + ' isInstalled', isInstalled);
                     resolve(isInstalled);
                 })
                 .catch((err) => {
@@ -39,11 +42,13 @@ class AppInstalledChecker {
     }
 
     static isAppInstalledAndroid(key) {
-        return this.checkPackageName(APP_LIST[key].pkgName);
+        //return this.checkPackageName(APP_LIST[key].pkgName);
+        return this.checkPackageName(key);
     }
 
     static isAppInstalledIOS(key) {
-        return this.checkURLScheme(APP_LIST[key].urlScheme, APP_LIST[key].urlParams);
+        //return this.checkURLScheme(APP_LIST[key].urlScheme, APP_LIST[key].urlParams);
+        return this.checkURLScheme("",key);
     }
 }
 
