@@ -4,16 +4,16 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import App from './src/app';
+import React, { Component } from 'react'
+import { AppRegistry } from 'react-native'
+import App from './src/app'
 
 export default class example extends Component {
-  render() {
+  render () {
     return (
-      <App/>
-    );
+      <App />
+    )
   }
 }
 
-AppRegistry.registerComponent('example', () => example);
+AppRegistry.registerComponent('example', () => example)
